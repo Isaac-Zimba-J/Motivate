@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Motivate.MainPage"
+             BackgroundColor="#f5f5f5">
+    <ScrollView>
+        <VerticalStackLayout Padding="30"
+                             Spacing="30"
+                             VerticalOptions="Center"
+                             HorizontalOptions="Center">
+            <!-- Quote Card -->
+            <Border Stroke="#cccccc"
+                    StrokeShape="RoundRectangle 20"
+                    BackgroundColor="White"
+                    StrokeThickness="1"
+                    Padding="20"
+                    WidthRequest="320">
+                <Border.Shadow>
+                    <Shadow Brush="Black"
+                            Offset="5,5"
+                            Radius="10"
+                            Opacity="0.3" />
+                </Border.Shadow>
+                <VerticalStackLayout Spacing="15">
+                    <Label Text="{Binding QuoteContent}"
+                           FontSize="22"
+                           FontAttributes="Bold"
+                           TextColor="#333333"
+                           HorizontalTextAlignment="Center" />
+                    <Label Text="{Binding QuoteAuthor}"
+                           FontSize="18"
+                           FontAttributes="Italic"
+                           TextColor="#666666"
+                           HorizontalTextAlignment="Center" />
+                </VerticalStackLayout>
+            </Border>
+            <!-- Button -->
+            <Button Text="✨ Get Motivated"
+                    Command="{Binding LoadQuoteCommand}"
+                    BackgroundColor="#0078D7"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="25"
+                    WidthRequest="200"
+                    HeightRequest="50">
+                <Button.Shadow>
+                    <Shadow Brush="Gray"
+                            Offset="3,3"
+                            Radius="8"
+                            Opacity="0.5" />
+                </Button.Shadow>
+            </Button>
+            <!-- Activity Indicator -->
+            <ActivityIndicator IsRunning="{Binding IsBusy}"
+                               IsVisible="{Binding IsBusy}"
+                               Color="#0078D7"
+                               HorizontalOptions="Center" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
